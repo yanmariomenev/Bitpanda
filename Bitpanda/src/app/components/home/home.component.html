@@ -1,0 +1,48 @@
+<!-- <tr *ngFor="let app of weData | keyvalue ">
+    <th scope="row">  {{app.data}}:{{app.value}}<br></th>
+    <tr *ngFor="let commodities of a | async">
+</tr> -->
+
+<h1>apicall</h1>
+<button (click)="getData()">get data</button>
+
+
+<button (click)="getPosts()">get posts</button>
+<div *ngFor = "let post of posts | async" >{{post | json}}</div>
+<app-table></app-table>
+<h4>--------------splitttter------------------</h4>
+<app-assets></app-assets>
+
+<!-- <span>
+    <p>Object</p>
+    <div *ngFor="let item of cryptoArray | keyvalue">
+      {{item.key}}:{{item.value}}
+      <div *ngFor="let val of item.value | keyvalue">
+        {{val.value.name | json}}
+      </div>
+    </div>
+    
+  </span> -->
+  
+<span>
+    <p>Object</p>
+    <div *ngFor="let item of cryptoArray | keyvalue">
+     {{item.value.name}}
+      <!-- <div *ngFor="let val of item.value | keyvalue">
+        {{val.value.name | json}}
+      </div> -->
+    </div>
+    
+  </span>
+
+<!-- <tr *ngFor="let crypto of cryptoArray">
+    <th scope="row">  {{crypto.symbol | json}}<br>{{crypto.name | json}}</th>
+    <td>{{crypto.avg_price.substr(0,6)}}</td>
+
+</tr> -->
+
+  
+
+
+
+
