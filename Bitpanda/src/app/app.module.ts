@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -18,6 +17,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { currencyDataService } from './core/services/currencyData.service';
+import { CommonModule } from '@angular/common';
 
 
 @NgModule({
@@ -25,6 +25,7 @@ import { currencyDataService } from './core/services/currencyData.service';
     AppComponent,
     HomeComponent,
     ToolbarComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -41,6 +42,7 @@ import { currencyDataService } from './core/services/currencyData.service';
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
+    CommonModule
   ],
   providers: [
    

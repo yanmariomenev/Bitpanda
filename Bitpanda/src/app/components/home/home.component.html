@@ -1,5 +1,5 @@
 
-  <table mat-table class="full-width-table" [dataSource]="a">
+  <table mat-table class="full-width-table" [dataSource]="cryptoData" >
 
     <ng-container matColumnDef="#">
       <th mat-header-cell *matHeaderCellDef >#</th>
@@ -17,7 +17,7 @@
     </ng-container>
 
     <ng-container matColumnDef="price">
-      <th mat-header-cell *matHeaderCellDef>price</th>
+      <th mat-header-cell *matHeaderCellDef>Price</th>
       <td mat-cell *matCellDef="let row">{{row.avg_price | currency:'€' }}</td>
     </ng-container>
 
@@ -28,41 +28,21 @@
 
     <ng-container matColumnDef="change">
       <th mat-header-cell *matHeaderCellDef >Change</th>
+      <!-- TODO: CHANGE COLOR DEPENDING IF THE NUMBER IS NEGATIVE OR POSOTIVE -->
       <!-- <td mat-cell *matCellDef="let row">{{((row.change_24h_amount / row.avg_price ) * 100).toFixed(2)}}%</td> -->
       <td mat-cell *matCellDef="let row">{{calculatePercentage(row.change_24h_amount,row.avg_price)}}%</td>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+      <mat-header-cell  *matHeaderCellDef > Action </mat-header-cell>
+      <mat-cell *matCellDef="let row" >
+           <button  class="close" mat-raised-button color="primary">Buy</button>
+      </mat-cell>
     </ng-container>
   
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
-  
-  
-
-
-<h2>--------------------------newdata------------------------------</h2>
-<h1>apicall</h1>
-<button (click)="getData()">get data</button>
-
-
-<button (click)="getPosts()">get posts</button>
-<div *ngFor = "let post of posts | async" >{{post | json}}</div>
-
-<!-- <app-table></app-table> -->
-<h4>--------------splitttter------------------</h4>
-<!-- <app-assets></app-assets> -->
 
   
-<!-- <span>
-    <p>Object</p>
-    <div *ngFor="let item of dataSource | keyvalue">
-     {{item.value.name}}
-    </div>
-    
-</span> -->
-
-
   
-
-
-
-
