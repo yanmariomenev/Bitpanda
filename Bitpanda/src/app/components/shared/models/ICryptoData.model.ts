@@ -1,16 +1,6 @@
 import { TmplAstTextAttribute } from '@angular/compiler';
 
 export interface ICryptoData {
-    // type : string;
-    // id : string;
-    attributes : test1[];
-    // attributes : [test1];
-    // symbol : string;
-    // name : string;
-    // avg_price : number;
-    // change_24h_amount : string;
-    // logo : string;
-    // circulating_supply : string;
 }
 export interface test1{
      symbol : string;
