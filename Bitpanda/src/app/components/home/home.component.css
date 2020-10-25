@@ -1,5 +1,6 @@
 .full-width-table {
     width: 100%;
+    
     /* justify-content: center; */
   }
   .positive {
@@ -9,5 +10,11 @@
 .negative {
     background-color: red;
 }
-  
+.valueSymbol{
+    font-size: 12px;
+}
+
+section {
+    display: table;
+  }
   

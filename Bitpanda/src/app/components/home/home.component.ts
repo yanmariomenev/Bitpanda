@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Observable, Subscription, forkJoin   } from 'rxjs';
 import { currencyDataService } from 'src/app/core/services/currencyData.service';
 import { DataEntity, IData, IData1, IDataFromCrypto, test1 } from '../shared/models/ICryptoData.model';
-import { Attributes, Attributes8, data123, Data, CommoditiesEntity } from '../shared/models/ITestData.model';
+import { Attributes, Attributes8, data123, Data, CommoditiesEntity, Attributes11 } from '../shared/models/ITestData.model';
 
 
 @Component({
@@ -18,17 +18,11 @@ export class HomeComponent implements OnInit {
   
   displayedColumns: string[] = ['#','logo','name','price','marketCap', 'change','action'];
   
-  posts: any;
-  sub$: Subscription;
-  testData: any;
-  cryptoData : DataEntity[];
+  dataSource : DataEntity[];
   commoditiesData :DataEntity[];
   bindCrypto : DataEntity[];
-  commoArray: any;
-  imagePath: string;
-  weData : Data;
-  atributeData : any;
-  getAll : any;
+  fiatData: DataEntity[];
+
 
   request1:any;
   request2:any;
@@ -39,11 +33,12 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
   
-   this.currencyService.GetAllCryptoCoins().subscribe((data: IDataFromCrypto) => 
-    {console.log(data.data); this.cryptoData  = data.data;});
+  //  this.currencyService.GetAllCryptoCoins().subscribe((data: IDataFromCrypto) => 
+  //   {console.log(data.data); this.dataSource  = data.data;});
+    this.getCryptoCurrencies()
 
-    this.currencyService.GetAllCommodities().subscribe((data: IDataFromCrypto) => 
-    {console.log(data.data); this.commoditiesData  = data.data;});
+    this.currencyService.GetAllFiats().subscribe((data: any) => 
+    {this.fiatData  = data.data;});
 
     forkJoin(
       [this.currencyService.GetAllCryptoCoins(),
@@ -56,11 +51,9 @@ export class HomeComponent implements OnInit {
       this.request3 = result[2].data;
       this.request4 = result[3].data;
 
-      console.log(result, ' from result')
       this.bindCrypto = this.request1;
       // this.bindCrypto.push(this.request2)
 
-      console.log(this.bindCrypto, 'from fork');
   });
 
    
@@ -69,5 +62,25 @@ export class HomeComponent implements OnInit {
   calculatePercentage = function(changedValue: number, avgValue: number){
     return ((changedValue / avgValue)* 100).toFixed(2);
    }
+
+   getCommodities(){
+    this.currencyService.GetAllCommodities().subscribe((data: IDataFromCrypto) => 
+    {this.dataSource  = data.data;});
+   }
+   getCryptoCurrencies(){
+    this.currencyService.GetAllCryptoCoins().subscribe((data: IDataFromCrypto) => 
+    { this.dataSource  = data.data;});
+   }
+   getIndexes(){
+    // Create interface
+    this.currencyService.GetAllIndexes().subscribe((data: any) => 
+    { this.dataSource  = data.data;});
+   }
+  //  getFiats(){
+  //   this.dataSource = [];
+  //    // Create interface
+  //   this.currencyService.GetAllFiats().subscribe((data: any) => 
+  //   {console.log(this.dataSource, 'from fiat'); this.dataSource  = data.data;});
+  //  }
    
 }
