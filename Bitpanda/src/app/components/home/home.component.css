@@ -1,15 +1,40 @@
 .full-width-table {
-    width: 100%;
+    width: 80%;
     
+    border-collapse: collapse;
+    display: table;
+    padding-left: 30px;
+    padding-right: 30px;
     /* justify-content: center; */
   }
+ 
+
+th {
+    border-bottom: 1px solid #81197c;
+  }
+  
+    td.mat-cell { 
+    padding: 20px 0;
+    border: none;
+    
+  }
+  
+  tr.mat-row {
+    background: #f6f6f8;
+    border: 1px solid #81197c;
+   
+  }
+
+
   .positive {
     background-color: green;
-}
 
+}
 .negative {
     background-color: red;
 }
+
+
 .valueSymbol{
     font-size: 12px;
 }

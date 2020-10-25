@@ -19,6 +19,9 @@
 .hidden{
   display: none;
 }
+.example-fill-remaining-space {
+  flex: 1 1 auto;
+}
 
 /* @media(min-width: 450px){
   .sidenav {
