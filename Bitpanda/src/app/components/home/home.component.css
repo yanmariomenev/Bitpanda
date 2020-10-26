@@ -23,7 +23,20 @@ th {
     border: 1px solid #81197c;
    
   }
-
+  .mat-card, .mat-accordion{
+    background: #f6f6f8;
+    border: 1px solid #81197c;
+   
+  }
+ .centerValues{
+  margin:auto; 
+  display:table;
+  border:1px;
+ }
+ 
+.icon{
+  font-size: 15px;
+}
 
   .positive {
     color: green;

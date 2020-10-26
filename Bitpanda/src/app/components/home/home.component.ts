@@ -22,15 +22,9 @@ export class HomeComponent implements OnInit {
   displayedColumns: string[] = ['#','logo','name','price','marketCap', 'change','action'];
   
   dataSource : DataEntity[];
-  commoditiesData :DataEntity[];
-  bindCrypto : DataEntity[];
   fiatData: FiatDataEntity[];
   calucaltedPrice: number;
 
-  request1:any;
-  request2:any;
-  request3:any;
-  request4:any;
 
   constructor(private currencyService: currencyDataService) { }
 

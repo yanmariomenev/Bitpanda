@@ -17,7 +17,7 @@
   <mat-expansion-panel hideToggle>
     <mat-expansion-panel-header>
       <mat-panel-title>
-        Currency rates to euro
+        Currency rates
       </mat-panel-title>
       <mat-panel-description>
         Click here to check the currency rates
@@ -27,9 +27,9 @@
 
       <div fxLayout="row" fxLayout.xs="column">
         <mat-card  fxFlex="40%;" fxFlex.xs="80%" *ngFor="let element of fiatData | slice: 1">
-          <img height="35" width="35" mat-card-image src= "{{element.logo}}" alt="image not available">
+          <img  class="material-icons"  height="35" width="35" mat-card-image src= "{{element.logo}}" alt="monetization_on">
           <mat-card-content >
-            <span class="centerSpan">1 {{element.name}} = {{element.to_eur_rate | currency:'EUR'}}</span>
+            <span class="centerValues" >1 {{element.name}} = {{element.to_eur_rate | currency:'EUR'}}</span>
           </mat-card-content>
         </mat-card>
     
@@ -40,7 +40,6 @@
   <mat-expansion-panel (opened)="panelOpenState = true"
                        (closed)="panelOpenState = false">
     
-    <p>I'm visible because I am open</p>
   </mat-expansion-panel>
 </mat-accordion>
 
