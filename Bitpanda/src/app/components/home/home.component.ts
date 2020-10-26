@@ -14,7 +14,7 @@ import { FiatDataEntity, IFiatData } from '../shared/models/IFiatData.model';
 
 export class HomeComponent implements OnInit {
 
- 
+ //Simple data table made with Material and open for extension if needed.
   
   displayedColumns: string[] = ['#','logo','name','price','marketCap', 'change','action'];
   
@@ -27,6 +27,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.getCryptoCurrencies()
+    // Three of the fiats are not loading logo's returning 403. Replaced them with material icon for now.
     this.getFiats();
   }
   
@@ -34,7 +35,7 @@ export class HomeComponent implements OnInit {
     this.calucaltedPrice = ((changedValue / avgValue)* 100).toFixed(2);
     return this.calucaltedPrice;
    }
-
+   //Can be split in separate components
    getCommodities(){
     this.currencyService.GetAllCommodities().subscribe((data: IDataFromCrypto) => 
     {this.dataSource  = data.data;});
