@@ -13,47 +13,34 @@ export class currencyDataService{
 
     constructor(private http: HttpClient){}
     
-    getCryptoData(){
-        return this.http.get<Data>('https://api.bitpanda.com/v1/masterdata');
-    }
-    getPosts(){
-        return this.http.get('https://jsonplaceholder.typicode.com/posts');
-    }
-    GetTestData(){
-        return this.http.get('https://api.bitpanda.com/v1/masterdata')
-    }
-    GetAttributes(){
-        return this.http.get('https://api.bitpanda.com/v1/masterdata')
-        .pipe(
-            map((data : any) => {return{data: data.data.attributes.cryptocoins}})
-            );
-    }
-    // data.data.attributes.cryptocoins.map((data)=> data['attributes']);
     GetAllCryptoCoins(){
         return this.http.get('https://api.bitpanda.com/v1/masterdata')
         .pipe(
             map((data : ICurrencyData) => {return{data : data.data.attributes.cryptocoins.map(( data:CryptocoinsEntity)=>data.attributes)}})
             );
     }
-    // map((data : data123) => {return{data : data.data.attributes.cryptocoins.map(( data:any)=>data['attributes'])}})
+
     GetAllCommodities(){
         return this.http.get('https://api.bitpanda.com/v1/masterdata')
         .pipe(
             map((data : ICurrencyData) => {return{data: data.data.attributes.commodities.map(( data:CommoditiesEntity)=>data.attributes)}})
             );
     }
+
     GetAllIndexes(){
         return this.http.get('https://api.bitpanda.com/v1/masterdata')
         .pipe(
             map((data : ICurrencyData) => {return{data: data.data.attributes.indexes.map((data: IndexesEntity)=> data.attributes)}})
             );
     }
+
     GetAllFiats(){
         return this.http.get('https://api.bitpanda.com/v1/masterdata')
         .pipe(
             map((data : ICurrencyData) => {return{data: data.data.attributes.fiats.map((data: FiatsEntity) => data.attributes)}})
             );
     }
+    
     GetAllAttributes(){
         return this.http.get('https://api.bitpanda.com/v1/masterdata')
         .pipe(

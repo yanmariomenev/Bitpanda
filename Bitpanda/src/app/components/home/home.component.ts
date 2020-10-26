@@ -1,8 +1,5 @@
-import { registerLocaleData } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { Observable, Subscription, forkJoin   } from 'rxjs';
 import { currencyDataService } from 'src/app/core/services/currencyData.service';
-import { FiatsEntity } from '../shared/models/ICurrencyData.model';
 import { DataEntity,IDataFromCrypto} from '../shared/models/IDataFromService.model';
 import { FiatDataEntity, IFiatData } from '../shared/models/IFiatData.model';
 
@@ -29,32 +26,31 @@ export class HomeComponent implements OnInit {
   constructor(private currencyService: currencyDataService) { }
 
   ngOnInit(): void {
-
     this.getCryptoCurrencies()
-    
-    this.currencyService.GetAllFiats().subscribe((data: IFiatData) => 
-    {this.fiatData  = data.data;});
-
+    this.getFiats();
   }
   
   calculatePercentage = function(changedValue: number, avgValue: number){
     this.calucaltedPrice = ((changedValue / avgValue)* 100).toFixed(2);
     return this.calucaltedPrice;
-    // return ((changedValue / avgValue)* 100).toFixed(2);
    }
 
    getCommodities(){
     this.currencyService.GetAllCommodities().subscribe((data: IDataFromCrypto) => 
     {this.dataSource  = data.data;});
+    
    }
    getCryptoCurrencies(){
     this.currencyService.GetAllCryptoCoins().subscribe((data: IDataFromCrypto) => 
     { this.dataSource  = data.data;});
    }
    getIndexes(){
-    // Create interface
     this.currencyService.GetAllIndexes().subscribe((data: any) => 
     { this.dataSource  = data.data;});
    }
- 
+   getFiats(){
+    this.currencyService.GetAllFiats().subscribe((data: IFiatData) => 
+    {this.fiatData  = data.data;});
+   }
+
 }

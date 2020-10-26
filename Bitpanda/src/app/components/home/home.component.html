@@ -1,18 +1,3 @@
-<!-- 
-<div class="fiatCards">
-
-	<div fxLayout="row" fxLayout.xs="column">
-		<mat-card  fxFlex="40%;" fxFlex.xs="80%" *ngFor="let element of fiatData | slice: 1">
-      <img height="35" width="35" mat-card-image src= "{{element.logo}}" alt="image not available">
-			<mat-card-content >
-        <span class="centerSpan">1 {{element.name}} = {{element.to_eur_rate | currency:'EUR'}}</span>
-			</mat-card-content>
-		</mat-card>
-
-	</div>
-
-</div> -->
-
 <mat-accordion>
   <mat-expansion-panel hideToggle>
     <mat-expansion-panel-header>
@@ -37,10 +22,10 @@
     
     </div>
   </mat-expansion-panel>
-  <mat-expansion-panel (opened)="panelOpenState = true"
+  <!-- <mat-expansion-panel (opened)="panelOpenState = true"
                        (closed)="panelOpenState = false">
     
-  </mat-expansion-panel>
+  </mat-expansion-panel> -->
 </mat-accordion>
 
 
@@ -48,7 +33,6 @@
 <div class="button-row">
   <button style="margin-right:5px" mat-raised-button color="primary" (click) ="getCryptoCurrencies()">Cryptocurrencies</button>
   <button style="margin-right:5px" mat-raised-button color="primary" (click) ="getCommodities()">Metals</button>
-  <!-- <button style="margin-right:5px" mat-raised-button color="primary" (click) ="getFiats()">Fiats</button> -->
   <button style="margin-right:5px" mat-raised-button color="primary" (click) ="getIndexes()">Indices</button>
 </div>
 
@@ -57,7 +41,7 @@
   <table class="full-width-table"  mat-table  [dataSource]="dataSource" >
 
     <ng-container matColumnDef="#">
-      <th mat-header-cell *matHeaderCellDef >#</th>
+      <th mat-header-cell *matHeaderCellDef>#</th>
       <td mat-cell *matCellDef="let i = index">{{i + 1}}</td>
     </ng-container>
 
@@ -83,10 +67,11 @@
 
     <ng-container matColumnDef="change">
       <th mat-header-cell *matHeaderCellDef >Change 24/hr</th>
-      <!-- TODO: CHANGE COLOR DEPENDING IF THE NUMBER IS NEGATIVE OR POSOTIVE -->
-      <!-- <td mat-cell *matCellDef="let row">{{((row.change_24h_amount / row.avg_price ) * 100).toFixed(2)}}%</td> -->
       <td mat-cell *matCellDef="let row">
-        <span class = "mat-body-2" [ngClass]="{'negative': calucaltedPrice < 0, 'positive': calucaltedPrice > 0}"> {{calculatePercentage(row.change_24h_amount,row.avg_price)}}%</span>
+        <span class = "mat-body-2" 
+        [ngClass]="{'negative': calculatePercentage(row.change_24h_amount,row.avg_price) < 0,
+         'positive': calculatePercentage(row.change_24h_amount,row.avg_price) > 0}">
+         {{calucaltedPrice}}%</span>
       </td>
       
 
