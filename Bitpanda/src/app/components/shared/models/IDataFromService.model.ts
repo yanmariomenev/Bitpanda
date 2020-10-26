@@ -1,46 +1,4 @@
-import { TmplAstTextAttribute } from '@angular/compiler';
 
-export interface ICryptoData {
-}
-export interface test1{
-     symbol : string;
-     name : string;
-     avg_price : string;
-     change_24h_amount : string;
-     logo : string;
-     circulating_supply : string;
-}
-export interface IData {
-    data: IData1[];
-}
-export interface IData1 {
-    type: string;
-    attributes:  Iattribute[];
-
-}
-export interface Iattribute {
-    cryptocoins: Icryptocoins[];
-
-}
-export interface Icryptocoins {
-    type: string;
-    attributes: Iattribute[];
-    id: string;
-
-}
-export interface Iattribute {
-    type: string;
-    attributes: Iattributes;
-    id: string;
-  }
-export interface Iattributes {
-    symbol : string;
-    name : string;
-    avg_price : string;
-    change_24h_amount : string;
-    logo : string;
-    circulating_supply : string;
-}
 export interface IDataFromCrypto {
     data?: (DataEntity)[] | null;
   }

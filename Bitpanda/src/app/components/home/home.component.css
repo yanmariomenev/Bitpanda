@@ -1,5 +1,5 @@
 .full-width-table {
-    width: 80%;
+    width: 100%;
     
     border-collapse: collapse;
     display: table;
@@ -8,7 +8,6 @@
     /* justify-content: center; */
   }
  
-
 th {
     border-bottom: 1px solid #81197c;
   }
@@ -42,4 +41,8 @@ th {
 section {
     display: table;
   }
-  
+
+ .centerSpan{
+  justify-content: center;
+  align-items: center;
+ }

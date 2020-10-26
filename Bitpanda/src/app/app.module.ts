@@ -8,9 +8,9 @@ import { MaterialModule } from './material/material.module';
 import { HomeComponent } from './components/home/home.component';
 import { ToolbarComponent } from './components/shared/toolbar/toolbar.component';
 import { LayoutModule } from '@angular/cdk/layout';
-
-import { currencyDataService } from './core/services/currencyData.service';
+import { FlexLayoutModule } from "@angular/flex-layout";
 import { CommonModule } from '@angular/common';
+
 
 
 @NgModule({
@@ -27,10 +27,10 @@ import { CommonModule } from '@angular/common';
     HttpClientModule,
     MaterialModule,
     LayoutModule,
-    CommonModule
+    CommonModule,
+    FlexLayoutModule,
   ],
   providers: [
-   
   ],
   bootstrap: [AppComponent]
 })

@@ -1,8 +1,11 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { registerLocaleData } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
 import { Observable, Subscription, forkJoin   } from 'rxjs';
 import { currencyDataService } from 'src/app/core/services/currencyData.service';
-import { DataEntity, IData, IData1, IDataFromCrypto, test1 } from '../shared/models/ICryptoData.model';
-import { Attributes, Attributes8, data123, Data, CommoditiesEntity, Attributes11 } from '../shared/models/ITestData.model';
+import { FiatsEntity } from '../shared/models/ICurrencyData.model';
+import { DataEntity,IDataFromCrypto} from '../shared/models/IDataFromService.model';
+import { FiatDataEntity, IFiatData } from '../shared/models/IFiatData.model';
+
 
 
 @Component({
@@ -21,7 +24,7 @@ export class HomeComponent implements OnInit {
   dataSource : DataEntity[];
   commoditiesData :DataEntity[];
   bindCrypto : DataEntity[];
-  fiatData: DataEntity[];
+  fiatData: FiatDataEntity[];
 
 
   request1:any;
@@ -32,29 +35,27 @@ export class HomeComponent implements OnInit {
   constructor(private currencyService: currencyDataService) { }
 
   ngOnInit(): void {
-  
   //  this.currencyService.GetAllCryptoCoins().subscribe((data: IDataFromCrypto) => 
   //   {console.log(data.data); this.dataSource  = data.data;});
     this.getCryptoCurrencies()
-
-    this.currencyService.GetAllFiats().subscribe((data: any) => 
+    
+    this.currencyService.GetAllFiats().subscribe((data: IFiatData) => 
     {this.fiatData  = data.data;});
 
-    forkJoin(
-      [this.currencyService.GetAllCryptoCoins(),
-         this.currencyService.GetAllCommodities(),
-          this.currencyService.GetAllFiats(),
-          this.currencyService.GetAllIndexes(),])
-    .subscribe(result => {
-      this.request1 = result[0].data;
-      this.request2 = result[1].data;
-      this.request3 = result[2].data;
-      this.request4 = result[3].data;
+  //   forkJoin(
+  //     [this.currencyService.GetAllCryptoCoins(),
+  //        this.currencyService.GetAllCommodities(),
+  //         this.currencyService.GetAllFiats(),
+  //         this.currencyService.GetAllIndexes(),])
+  //   .subscribe(result => {
+  //     this.request1 = result[0].data;
+  //     this.request2 = result[1].data;
+  //     this.request3 = result[2].data;
+  //     this.request4 = result[3].data;
 
-      this.bindCrypto = this.request1;
-      // this.bindCrypto.push(this.request2)
-
-  });
+  //     this.bindCrypto = this.request1;
+  //     // this.bindCrypto.push(this.request2)
+  // });
 
    
   }
@@ -76,11 +77,5 @@ export class HomeComponent implements OnInit {
     this.currencyService.GetAllIndexes().subscribe((data: any) => 
     { this.dataSource  = data.data;});
    }
-  //  getFiats(){
-  //   this.dataSource = [];
-  //    // Create interface
-  //   this.currencyService.GetAllFiats().subscribe((data: any) => 
-  //   {console.log(this.dataSource, 'from fiat'); this.dataSource  = data.data;});
-  //  }
-   
+ 
 }

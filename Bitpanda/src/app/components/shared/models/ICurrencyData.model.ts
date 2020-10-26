@@ -1,4 +1,4 @@
-export interface data123 {
+export interface ICurrencyData {
     data: Data;
   }
   export interface Data {
@@ -6,22 +6,11 @@ export interface data123 {
     attributes: Attributes;
   }
   export interface Attributes {
-    // bfc?: (BfcEntity)[] | null;
-    // aml?: (AmlEntity)[] | null;
-    // best_rewards?: (BestRewardsEntity)[] | null;
-    // payout_providers?: (PayoutProvidersEntity)[] | null;
-    // asset_types?: (AssetTypesEntity)[] | null;
-    // asset_groups?: (null)[] | null;
+    
     commodities?: (CommoditiesEntity)[] | null;
     cryptocoins?: (CryptocoinsEntity)[] | null;
-    // stocks?: (null)[] | null;
     indexes?: (IndexesEntity)[] | null;
     fiats?: (FiatsEntity)[] | null;
-    // languages?: (LanguagesEntity)[] | null;
-    // newsletters?: (NewslettersEntity)[] | null;
-    // countries?: (CountriesEntity)[] | null;
-    // profile_report_reasons?: (ProfileReportReasonsEntity)[] | null;
-    // vip_levels_thresholds?: (VipLevelsThresholdsEntity)[] | null;
   }
   export interface BfcEntity {
     type: string;
