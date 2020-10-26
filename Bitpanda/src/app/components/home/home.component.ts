@@ -25,7 +25,7 @@ export class HomeComponent implements OnInit {
   commoditiesData :DataEntity[];
   bindCrypto : DataEntity[];
   fiatData: FiatDataEntity[];
-
+  calucaltedPrice: number;
 
   request1:any;
   request2:any;
@@ -35,33 +35,18 @@ export class HomeComponent implements OnInit {
   constructor(private currencyService: currencyDataService) { }
 
   ngOnInit(): void {
-  //  this.currencyService.GetAllCryptoCoins().subscribe((data: IDataFromCrypto) => 
-  //   {console.log(data.data); this.dataSource  = data.data;});
+
     this.getCryptoCurrencies()
     
     this.currencyService.GetAllFiats().subscribe((data: IFiatData) => 
     {this.fiatData  = data.data;});
 
-  //   forkJoin(
-  //     [this.currencyService.GetAllCryptoCoins(),
-  //        this.currencyService.GetAllCommodities(),
-  //         this.currencyService.GetAllFiats(),
-  //         this.currencyService.GetAllIndexes(),])
-  //   .subscribe(result => {
-  //     this.request1 = result[0].data;
-  //     this.request2 = result[1].data;
-  //     this.request3 = result[2].data;
-  //     this.request4 = result[3].data;
-
-  //     this.bindCrypto = this.request1;
-  //     // this.bindCrypto.push(this.request2)
-  // });
-
-   
   }
   
   calculatePercentage = function(changedValue: number, avgValue: number){
-    return ((changedValue / avgValue)* 100).toFixed(2);
+    this.calucaltedPrice = ((changedValue / avgValue)* 100).toFixed(2);
+    return this.calucaltedPrice;
+    // return ((changedValue / avgValue)* 100).toFixed(2);
    }
 
    getCommodities(){
