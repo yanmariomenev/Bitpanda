@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit {
   currencyData : DataEntity[];
   fiatData: FiatDataEntity[];
   calucaltedPrice: number;
-  dataSource : any;
+  dataSource : MatTableDataSource<DataEntity>;
 
   constructor(private currencyService: currencyDataService) { }
 
