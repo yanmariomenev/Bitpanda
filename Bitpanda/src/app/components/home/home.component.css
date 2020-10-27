@@ -58,3 +58,11 @@ section {
   justify-content: center;
   align-items: center;
  }
+ .align-right{
+  display: flex;
+  justify-content: flex-end;
+}
+.tableButton{
+  margin-right:5px;
+}
+

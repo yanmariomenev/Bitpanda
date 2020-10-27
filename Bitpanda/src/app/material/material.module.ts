@@ -8,7 +8,9 @@ import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
-import {MatExpansionModule} from '@angular/material/expansion'
+import { MatExpansionModule } from '@angular/material/expansion'
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input'; 
 
 const MaterialComponents = [
   MatButtonModule,
@@ -23,7 +25,9 @@ const MaterialComponents = [
   MatSortModule,
   MatCardModule,
   MatExpansionModule,
-
+  MatFormFieldModule,
+  MatInputModule,
+  
 ]
 
 @NgModule({

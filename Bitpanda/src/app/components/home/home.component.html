@@ -28,13 +28,18 @@
   </mat-expansion-panel> -->
 </mat-accordion>
 
-
-
-<div class="button-row">
-  <button style="margin-right:5px" mat-raised-button color="primary" (click) ="getCryptoCurrencies()">Cryptocurrencies</button>
-  <button style="margin-right:5px" mat-raised-button color="primary" (click) ="getCommodities()">Metals</button>
-  <button style="margin-right:5px" mat-raised-button color="primary" (click) ="getIndexes()">Indices</button>
+<div class="button-row" class="align-right">
+  <mat-form-field style="margin-right:25px"> 
+    <mat-label>Filter</mat-label>
+    <input  matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+  </mat-form-field>
+  <button class="tableButton" mat-raised-button color="primary" (click) ="getCryptoCurrencies()">Cryptocurrencies</button>
+  <button class="tableButton" mat-raised-button color="primary" (click) ="getCommodities()">Metals</button>
+  <button class="tableButton" mat-raised-button color="primary" (click) ="getIndexes()">Indices</button>
+  
 </div>
+
+
 
 
 <div class="mat-elevation-z8">
