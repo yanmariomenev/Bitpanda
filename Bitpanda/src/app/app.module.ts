@@ -10,6 +10,7 @@ import { ToolbarComponent } from './components/shared/toolbar/toolbar.component'
 import { LayoutModule } from '@angular/cdk/layout';
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { CommonModule } from '@angular/common';
+import { FooterComponent } from './components/shared/footer/footer.component';
 
 
 
@@ -18,6 +19,7 @@ import { CommonModule } from '@angular/common';
     AppComponent,
     HomeComponent,
     ToolbarComponent,
+    FooterComponent,
 
   ],
   imports: [

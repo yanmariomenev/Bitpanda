@@ -5,7 +5,6 @@ import { DataEntity,IDataFromCrypto} from '../shared/models/IDataFromService.mod
 import { FiatDataEntity, IFiatData } from '../shared/models/IFiatData.model';
 
 
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -26,8 +25,8 @@ export class HomeComponent implements OnInit {
   constructor(private currencyService: currencyDataService) { }
 
   ngOnInit(): void {
-    this.getCryptoCurrencies()
-    
+
+    this.getCryptoCurrencies();
     // Three of the fiats are not loading logo's returning 403. Replaced them with material icon for now.
     this.getFiats();
   }
