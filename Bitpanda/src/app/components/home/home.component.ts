@@ -35,6 +35,11 @@ export class HomeComponent implements OnInit {
     this.calucaltedPrice = ((changedValue / avgValue)* 100).toFixed(2);
     return this.calucaltedPrice;
    }
+
+   getColor(change , avgPrice){
+    this.calculatePercentage(change , avgPrice)
+     return this.calucaltedPrice > 0 ? 'green' : 'red';
+   }
    //Can be split in separate components
    getCommodities(){
     this.currencyService.GetAllCommodities().subscribe((data: IDataFromCrypto) => 
