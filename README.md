@@ -1,2 +1,2 @@
 # Bitpanda
-Bitpanda junior test :heart: 
+Bitpanda junior test
